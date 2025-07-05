@@ -1,0 +1,107 @@
+#container {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+
+/* Отключаем прокрутку у всего окна*/
+html, body {
+    margin: 0;
+    padding:0;
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+}
+
+/* Шрифт интерфейса */
+body {
+    font-family: Arial, sans-serif;
+}
+
+/* Карта занимает всё, если панель скрыта */
+#map {
+    flex-grow: 1;
+    transition: all 0.3s ease;
+    min-width: 0; /* Предоствращает переполнение */
+    min-height: 0;
+}
+
+/* Боковая панель (правая) */
+#sidebar {
+    width: 300px;
+    background-color: whitesmoke;
+    padding: 20px;
+    overflow-y: auto;
+    transition: transform 0.3s ease;
+    /*transform: translateX(0);*/
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 1000;
+}
+
+/* Боковая панель (левая) */
+#sidebarLeft {
+    width: 300px;
+    background-color: whitesmoke;
+    padding: 20px;
+    overflow-y: auto;
+    transition: transform 0.3s ease;
+    /*transform: translateX(0);*/
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 1000;
+}
+
+/* Кнопка сворачивания */
+#sidebarToggle {
+    position: fixed;
+    top: 20px;
+    right: 0px;
+    width: 20px;
+    height: 40px;
+    /*background: orange;*/
+    color: black;
+    transition: left 0.3s ease;
+    text-align: center;
+    line-height: 40px;
+    cursor: pointer;
+    /*border-top-left-radius: 5px;*/
+    /*border-bottom-left-radius: 5px;*/
+    font-weight: bold;
+    z-index: 1001;
+}
+
+/* Кнопка сворачивания левой панели */
+#sidebarLeftToggle {
+    position: fixed;
+    top: 20px;
+    left: 0px;
+    width: 20px;
+    height: 40px;
+    /*background: orange;*/
+    color: black;
+    transition: left 0.3s ease;
+    text-align: center;
+    line-height: 40px;
+    cursor: pointer;
+    /*border-top-left-radius: 5px;*/
+    /*border-bottom-left-radius: 5px;*/
+    font-weight: bold;
+    z-index: 1001;
+}
+
+
+/* Скрытая панель, на сколько процентов боковая панель будет закрываться */
+#sidebar.closed {
+    width: 0;
+    padding: 0;
+    overflow: hidden
+}
+
+/* Скрытая панель, на сколько процентов боковая панель будет закрываться */
+#sidebarLeft.closed {
+    width: 0;
+    padding: 0;
+    overflow: hidden
+}

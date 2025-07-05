@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Economic simulation</title>
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <!-- Файл со стилями -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css')}}" />
+</head>
+
+<body>
+    <div id="container">
+
+        <!-- БОКОВАЯ ПАНЕЛЬ (ЛЕВАЯ) -->
+        <div id="sidebarLeft" class="open">
+            <div id="sidebarLeftToggle">➡️</div> <!-- Кнопка -->
+            <div id="sidebarLeftContent">
+                <h2>Statistical Data</h2>
+            </div>
+        </div>
+        <!-- КОНЕЦ ЛЕВОЙ ПАНЕЛИ -->
+
+        <!-- КАРТА -->
+        <div id="map"></div>
+
+        <!-- БОКОВАЯ ПАНЕЛЬ (ПРАВАЯ) -->
+        <div id="sidebar" class="open">
+            <div id="sidebarToggle">⬅️</div> <!-- Кнопка -->
+            <div id="sidebarContent">
+                <h2>Economic simulation</h2>
+                <p id="selectedRole">Under maintenance</p> <!-- Надо подумать над другой кнопкой -->
+                <h3>Country</h3>
+                <select id="countrySelect">
+                    <option selected disabled>Select country</option>
+                </select>
+
+                <h3>Role</h3>
+                <select id="roleSelect">
+                    <option selected disabled>Select your role</option>
+                </select>
+
+                <h3>Parameters</h3>
+                <div id="parameters">
+                    <p>Population: <span id="population">-</span></p>
+                    <p>GDP: <span id="gdp">-</span></p>
+                    <p>Inflation: <span id="inflation">-</span></p>
+                </div>
+
+                <h3>Results</h3>
+                <div id="Results">
+                    <p>Population: </p>
+                    <p>GDP: </p>
+                    <p>Inflation: </p>
+                </div>
+            </div>
+        </div>
+        <!-- КОНЕЦ БОКОВОЙ ПАНЕЛИ (ПРАВОЙ) -->
+    </div>
+
+    <!--Leaflet JS отвечает за вывод карты на экран браузера -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+    <!-- Ваш JS-файл тоже отвечает за вывод карты на экран браузера -->
+    <script src="{{ url_for('static', filename='map.js') }}"></script>
+
+</body>
+
+</html>
